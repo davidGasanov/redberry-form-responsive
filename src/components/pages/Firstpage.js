@@ -8,19 +8,21 @@ const Firstpage = ({ data, changeData }) => {
       <h1>This is the first page</h1>
 
       <Field
-        changeData={changeData}
+        changeData={changeData} 
         data={data}
         name={"first_name"}
         label={"First Name"}
-        errorMessage={"first name should include at least 2 characters"}
+        errorMessage={"first name should include at least 3 characters"}
         required={true}
+        pattern="^[A-Za-z]{2,}[A-Za-z]$"
       />
       <Field
         changeData={changeData}
         data={data}
         name={"last_name"}
         label={"Last Name"}
-        errorMessage={"last name should include at least 2 characters"}
+        errorMessage={"last name should include at least 3 characters"}
+        pattern={"^[A-Za-z]{2,}[A-Za-z]$"}
         required={true}
       />
       <Field
@@ -29,6 +31,7 @@ const Firstpage = ({ data, changeData }) => {
         name={"email"}
         label={"Your email"}
         errorMessage={"should be a valid email"}
+        pattern={"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]+$"}
         required={true}
       />
       <Field
@@ -37,6 +40,7 @@ const Firstpage = ({ data, changeData }) => {
         name={"phone"}
         label={"Phone number"}
         errorMessage={"needs to be formatted according to georgian standards"}
+        pattern={"^[+]9955\d{8}$"}
       />
 
       <Navigation data={data} changeData={changeData} />
