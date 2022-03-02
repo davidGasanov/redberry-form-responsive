@@ -42,3 +42,15 @@
 .pagination {
   display: flex;
 }
+
+/* -- Field -- */
+
+.error-message {
+  color: red;
+  font-size: 15px;
+  display: none;
+}
+
+input:invalid ~ span {
+  display: block;
+}

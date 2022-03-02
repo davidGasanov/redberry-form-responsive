@@ -12,24 +12,31 @@ const Firstpage = ({ data, changeData }) => {
         data={data}
         name={"first_name"}
         label={"First Name"}
+        errorMessage={"first name should include at least 2 characters"}
+        required={true}
       />
       <Field
         changeData={changeData}
         data={data}
         name={"last_name"}
         label={"Last Name"}
+        errorMessage={"last name should include at least 2 characters"}
+        required={true}
       />
       <Field
         changeData={changeData}
         data={data}
         name={"email"}
         label={"Your email"}
+        errorMessage={"should be a valid email"}
+        required={true}
       />
       <Field
         changeData={changeData}
         data={data}
         name={"phone"}
         label={"Phone number"}
+        errorMessage={"needs to be formatted according to georgian standards"}
       />
 
       <Navigation data={data} changeData={changeData} />
