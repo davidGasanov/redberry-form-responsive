@@ -24,9 +24,11 @@ const Form = () => {
     phone: {content: "", valid: true},
   });
 
+  /*
   useEffect(() => {
     console.log(data);
   });
+*/
 
   // switchRender
   const switchRender = (page) => {

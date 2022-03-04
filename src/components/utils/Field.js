@@ -1,35 +1,73 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-const Field = ({ name, data, label, changeData, errorMessage, required, pattern }) => {
-
+const Field = ({
+  name,
+  data,
+  label,
+  changeData,
+  errorMessage,
+  required,
+  pattern,
+  watchAll,
+  setWatchAll,
+}) => {
   const regex = new RegExp(pattern);
 
-
   const handleChange = (e) => {
+    const dataCopy = { ...data };
+    const input = e.target.value;
 
-    const dataCopy = {...data};
+    dataCopy[name].content = input;
 
-    dataCopy[name].content = e.target.value;
+    regex.test(input)
+      ? setMismatch(false)
+      : input === ""
+      ? setMismatch(false)
+      : setMismatch(true);
+
+    if (required) {
+      if (regex.test(input)) {
+        console.log(true);
+        setValid(true);
+      } else {
+        console.log(false);
+        setValid(false);
+      }
+    } else {
+      if (input === "") {
+        setValid(true);
+      } else if (regex.test(input)) {
+        setValid(true);
+        console.log(valid);
+      } else {
+        setValid(false);
+        console.log(valid);
+      }
+    }
 
     changeData(dataCopy);
 
-    regex.test(e.target.value) || e.target.value === "" ? setMismatch(false) : setMismatch(true); 
-
-   // mismatch? setValid(false) : setValid(true);
-
   };
-
 
   // local state
   const [watching, setWatching] = useState(false);
+  // mismatch is only used for the seprate error message
   const [mismatch, setMismatch] = useState(false);
+  const [valid, setValid] = useState(false);
 
-  const handleWatching = (e) =>{
+  useEffect(() => {
+    const dataCopy = { ...data };
+    dataCopy[name].valid = valid;
+    changeData(dataCopy);
+    console.log(data);
+
+  }, [valid]);
+
+  const handleWatching = () => {
     setWatching(true);
-
-  }
-
+    setWatchAll(false);
+  };
 
   return (
     <div className="form-input">
@@ -40,10 +78,12 @@ const Field = ({ name, data, label, changeData, errorMessage, required, pattern 
         placeholder={label}
         onChange={handleChange}
         onBlur={handleWatching}
-        focused={watching.toString()}
+        focused={watchAll ? true.toString() : watching.toString()}
       />
       <span className="error-message">{label} is required</span>
-      <span className="mismatch-message" mismatched={mismatch.toString()}>{errorMessage}</span>
+      <span className="mismatch-message" mismatched={mismatch.toString()}>
+        {errorMessage}
+      </span>
     </div>
   );
 };

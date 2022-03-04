@@ -6,6 +6,9 @@ import Field from "../utils/Field";
 const Firstpage = ({ data, changeData }) => {
 
   const [valid, setValid] = useState(false);
+  const [watchAll, setWatchAll] = useState(false);
+  
+
 
   return (
     <div>
@@ -20,6 +23,8 @@ const Firstpage = ({ data, changeData }) => {
         errorMessage={"first name should include at least 3 characters"}
         required={true}
         pattern="^[A-Za-z]{2,}[A-Za-z]$"
+        watchAll = {watchAll}
+        setWatchAll = {setWatchAll}
       />
       <Field
         changeData={changeData}
@@ -29,6 +34,8 @@ const Firstpage = ({ data, changeData }) => {
         errorMessage={"last name should include at least 3 characters"}
         pattern={"^[A-Za-z]{2,}[A-Za-z]$"}
         required={true}
+        watchAll = {watchAll}
+        setWatchAll = {setWatchAll}
 
       />
       <Field
@@ -37,8 +44,10 @@ const Firstpage = ({ data, changeData }) => {
         name={"email"}
         label={"Your email"}
         errorMessage={"should be a valid email"}
-        pattern={"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]+$"}
+        pattern={"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[.][a-z]+$"}
         required={true}
+        watchAll = {watchAll}
+        setWatchAll = {setWatchAll}
 
       />
       <Field
@@ -47,13 +56,14 @@ const Firstpage = ({ data, changeData }) => {
         name={"phone"}
         label={"Phone number"}
         errorMessage={"needs to be formatted according to georgian standards"}
-        pattern={"^[+]9955\d{8}$"}
+        pattern={"^[+]9955\\d{8}$"}
+        required={false}
+        watchAll = {watchAll}
+        setWatchAll = {setWatchAll}
 
       />
       
-
-
-      <Navigation data={data} changeData={changeData} />
+      <Navigation valid={valid} setWatchAll={setWatchAll} data={data} changeData={changeData} />
     </div>
   );
 };
