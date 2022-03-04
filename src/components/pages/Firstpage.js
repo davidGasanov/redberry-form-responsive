@@ -1,14 +1,37 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "../utils/Navigation";
 import Field from "../utils/Field";
 
 const Firstpage = ({ data, changeData }) => {
 
-  const [valid, setValid] = useState(false);
+  const [pageValid, setPageValid] = useState(false);
   const [watchAll, setWatchAll] = useState(false);
-  
 
+/*
+  const updatePages=()=>{
+    const newArr = data.pagesArr.map((page)=>{
+      if (page.number = 1 && page.completed){
+        return ({number: 1, completed: (pageValid)})
+      } else{
+        return page
+      }
+    })
+
+    changeData({...data, pagesArr: newArr});
+    
+  }
+  */
+ 
+  useEffect(()=>{
+    if (data.first_name.valid && data.last_name.valid && data.email.valid && data.phone.valid){
+      setPageValid(true);
+  
+    } else{
+      setPageValid(false);
+    }
+    console.log("Page validity status: "+ pageValid);
+  },[data])
 
   return (
     <div>
@@ -63,7 +86,7 @@ const Firstpage = ({ data, changeData }) => {
 
       />
       
-      <Navigation valid={valid} setWatchAll={setWatchAll} data={data} changeData={changeData} />
+      <Navigation pageValid={pageValid} setPageValid={setPageValid} setWatchAll={setWatchAll} data={data} changeData={changeData} />
     </div>
   );
 };
