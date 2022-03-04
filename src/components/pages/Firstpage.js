@@ -1,11 +1,16 @@
 import React from "react";
+import { useState } from "react";
 import Navigation from "../utils/Navigation";
 import Field from "../utils/Field";
 
 const Firstpage = ({ data, changeData }) => {
+
+  const [valid, setValid] = useState(false);
+
   return (
     <div>
       <h1>This is the first page</h1>
+
 
       <Field
         changeData={changeData} 
@@ -24,6 +29,7 @@ const Firstpage = ({ data, changeData }) => {
         errorMessage={"last name should include at least 3 characters"}
         pattern={"^[A-Za-z]{2,}[A-Za-z]$"}
         required={true}
+
       />
       <Field
         changeData={changeData}
@@ -33,6 +39,7 @@ const Firstpage = ({ data, changeData }) => {
         errorMessage={"should be a valid email"}
         pattern={"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]+$"}
         required={true}
+
       />
       <Field
         changeData={changeData}
@@ -41,7 +48,10 @@ const Firstpage = ({ data, changeData }) => {
         label={"Phone number"}
         errorMessage={"needs to be formatted according to georgian standards"}
         pattern={"^[+]9955\d{8}$"}
+
       />
+      
+
 
       <Navigation data={data} changeData={changeData} />
     </div>

@@ -45,17 +45,19 @@
 
 /* -- Field -- */
 
-.error-message {
+.error-message, .mismatch-message {
   color: red;
   font-size: 15px;
   display: none;
 }
 
 
-
-
-input:invalid[focused="true"] ~ .error-message {
+.mismatch-message[mismatched="true"]{
   display: block;
+}
+
+input:invalid[focused="true"] ~ .error-message{
+  display: block; 
 }
 
 

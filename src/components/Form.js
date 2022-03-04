@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 // Components
 import Landing from "./pages/Landing";
 import Firstpage from "./pages/Firstpage";
+import Secondpage from "./pages/Secondpage";
 import Navigation from "./utils/Navigation";
 
 const Form = () => {
@@ -17,10 +18,10 @@ const Form = () => {
       { number: 4, completed: false },
       { number: 5, completed: false },
     ],
-    first_name: "",
-    last_name: "",
-    email: "",
-    phone: "",
+    first_name: {content: "", valid: false},
+    last_name: {content: "", valid: false},
+    email: {content: "", valid: false},
+    phone: {content: "", valid: true},
   });
 
   useEffect(() => {
@@ -34,6 +35,8 @@ const Form = () => {
         return <Landing data={data} changeData={changeData} />;
       case 1:
         return <Firstpage data={data} changeData={changeData} />;
+        case 2:
+        return <Secondpage data={data} changeData={changeData} />;
     }
   };
 
