@@ -1,12 +1,12 @@
 import React from "react";
 
-const Navigation = ({ data, changeData, pageValid, setPageValid, setWatchAll }) => {
+const Navigation = ({ data, changeData, pageValid, setPageValid, handlePageInvalid }) => {
   const { page } = data;
 
 
   const changePage = (num) =>{
     if(!pageValid){
-      setWatchAll(true);
+
     } else {
       changeData({...data, page: num});
     }
@@ -17,8 +17,7 @@ const Navigation = ({ data, changeData, pageValid, setPageValid, setWatchAll }) 
     const dataCopy = {...data}
 
     if(!pageValid){
-      setWatchAll(true);
-      console.log( "page is invalid" + pageValid)
+      handlePageInvalid();
     } else {
       console.log( "page is valid")
 
@@ -44,11 +43,12 @@ const Navigation = ({ data, changeData, pageValid, setPageValid, setWatchAll }) 
   
   const prevPage = () =>{
     if(!pageValid){
-      setWatchAll(true);
+      handlePageInvalid();
+      
       console.log( "page is invalid" + pageValid)
     } else {
       console.log( "page is valid")
-      changeData({...data, page: page+1});
+      changeData({...data, page: page-1});
     }
   }
 

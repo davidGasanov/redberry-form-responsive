@@ -22,6 +22,7 @@ const Form = () => {
     last_name: {content: "", valid: false},
     email: {content: "", valid: false},
     phone: {content: "", valid: true},
+    "skills": [],
   });
 
 

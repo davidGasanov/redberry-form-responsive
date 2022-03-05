@@ -8,20 +8,10 @@ const Firstpage = ({ data, changeData }) => {
   const [pageValid, setPageValid] = useState(false);
   const [watchAll, setWatchAll] = useState(false);
 
-/*
-  const updatePages=()=>{
-    const newArr = data.pagesArr.map((page)=>{
-      if (page.number = 1 && page.completed){
-        return ({number: 1, completed: (pageValid)})
-      } else{
-        return page
-      }
-    })
 
-    changeData({...data, pagesArr: newArr});
-    
+ const handlePageInvalid=()=>{
+    setWatchAll(true);
   }
-  */
  
   useEffect(()=>{
     if (data.first_name.valid && data.last_name.valid && data.email.valid && data.phone.valid){
@@ -44,7 +34,7 @@ const Firstpage = ({ data, changeData }) => {
         name={"first_name"}
         label={"First Name"}
         errorMessage={"first name should include at least 3 characters"}
-        required={true}
+        required={false}
         pattern="^[A-Za-z]{2,}[A-Za-z]$"
         watchAll = {watchAll}
         setWatchAll = {setWatchAll}
@@ -56,7 +46,7 @@ const Firstpage = ({ data, changeData }) => {
         label={"Last Name"}
         errorMessage={"last name should include at least 3 characters"}
         pattern={"^[A-Za-z]{2,}[A-Za-z]$"}
-        required={true}
+        required={false}
         watchAll = {watchAll}
         setWatchAll = {setWatchAll}
 
@@ -68,7 +58,7 @@ const Firstpage = ({ data, changeData }) => {
         label={"Your email"}
         errorMessage={"should be a valid email"}
         pattern={"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[.][a-z]+$"}
-        required={true}
+        required={false}
         watchAll = {watchAll}
         setWatchAll = {setWatchAll}
 
@@ -86,7 +76,7 @@ const Firstpage = ({ data, changeData }) => {
 
       />
       
-      <Navigation pageValid={pageValid} setPageValid={setPageValid} setWatchAll={setWatchAll} data={data} changeData={changeData} />
+      <Navigation pageValid={pageValid} setPageValid={setPageValid} handlePageInvalid={handlePageInvalid} data={data} changeData={changeData} />
     </div>
   );
 };
