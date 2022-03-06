@@ -45,12 +45,15 @@
 
 /* -- Field -- */
 
-.error-message, .mismatch-message {
+.error-message, .mismatch-message, .input-error, .language-error {
   color: red;
   font-size: 15px;
   display: none;
 }
 
+.error-message[visible="true"]{
+  display: block;
+}
 
 .mismatch-message[mismatched="true"]{
   display: block;
@@ -61,6 +64,22 @@ input:invalid[focused="true"] ~ .error-message{
 }
 
 
-input:invalid[focused="true"]{
+input:invalid[focused="true"], input[focused="true"][empty="true"]{
   border: 1px solid red;
 }
+
+
+
+.year-input[focused="true"] ~ .input-error[empty="true"], .input-error[mismatched="true"]{
+  display: block;
+  border: red;
+}
+
+.skills-menu[focused="true"] ~ span[visible="true"]{
+  display: block;
+} 
+
+.skill-box{
+  display: flex;
+}
+
