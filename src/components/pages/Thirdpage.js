@@ -5,8 +5,8 @@ import Radio from "../utils/Radio";
 import Date from "../utils/Date";
 
 const Thirdpage = ({ data, changeData }) => {
+  
   // local state
-
   const [pageValid, setPageValid] = useState(false);
   const [showErrors, setShowErrors] = useState(false);
 

@@ -6,6 +6,9 @@ import Landing from "./pages/Landing";
 import Firstpage from "./pages/Firstpage";
 import Secondpage from "./pages/Secondpage";
 import Thirdpage from "./pages/Thirdpage.js";
+import Fourthpage from "./pages/Fourthpage";
+
+// Utils
 import Navigation from "./utils/Navigation";
 
 const Form = () => {
@@ -27,6 +30,8 @@ const Form = () => {
     work_preference: { content: "", valid: false },
     had_covid: { content: null, valid: false },
     vaccinated: {content: "", valid: false},
+    will_organize_devtalk: {content: "", valid: false},
+    something_special: {content: "", valid: false},
   });
 
   useEffect(() => {
@@ -44,6 +49,8 @@ const Form = () => {
         return <Secondpage data={data} changeData={changeData} />;
       case 3:
         return <Thirdpage data={data} changeData={changeData} />;
+      case 4:
+          return <Fourthpage data={data} changeData={changeData} />;
     }
   };
 
