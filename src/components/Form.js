@@ -25,7 +25,7 @@ const Form = () => {
     phone: { content: "", valid: true },
     skills: [],
     work_preference: { content: "", valid: false },
-    had_covid: { content: "", valid: false },
+    had_covid: { content: null, valid: false },
     vaccinated: {content: "", valid: false},
   });
 

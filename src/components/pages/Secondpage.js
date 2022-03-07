@@ -13,7 +13,7 @@ const Secondpage = ({ data, changeData }) => {
   
   // local state
   const [skills, setSkills] = useState();
-  const [chosenSkills, setChosenSkills] = useState([]);
+  const [chosenSkills, setChosenSkills] = useState([{ id: 1, language: "HTML", experience: 2 }]);
   const [pageValid, setPageValid] = useState(false);  
   const [pageError, setPageError] = useState(false);
 
