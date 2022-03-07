@@ -26,9 +26,7 @@ const Form = () => {
     skills: [],
     work_preference: { content: "", valid: false },
     had_covid: { content: "", valid: false },
-    had_covid_at: {content: "", valid: false},
     vaccinated: {content: "", valid: false},
-    vaccinated_at: {content: "", valid: false},
   });
 
   useEffect(() => {
