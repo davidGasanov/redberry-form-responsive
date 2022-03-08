@@ -1,11 +1,19 @@
 import React from "react";
 
-const Textfield = ({data, changeData, title, text, name}) => {
-    console.log("the data is: "+data);
+const Textfield = ({data, changeData, title, name, showErrors}) => {
+    
+
+
+  const handleChange=(e)=>{
+    const contentValid = e.target.value!==""? true : false;
+    changeData({...data, [name]: {value: e.target.value, valid: contentValid}})
+  }
+
   return (
     <div>
         <h2>{title}</h2>
-        <textarea name={name}/>
+        <textarea onChange={handleChange} name={name}/>
+        <span visible={!(data[name].valid) && showErrors ? "true" : "false"} className="error-message">Please fill out this field</span>
     </div>
   );
 };
