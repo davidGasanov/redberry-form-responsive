@@ -13,7 +13,7 @@ const Secondpage = ({ data, changeData }) => {
   
   // local state
   const [skills, setSkills] = useState();
-  const [chosenSkills, setChosenSkills] = useState([{ id: 1, language: "HTML", experience: 2 }]);
+  const [chosenSkills, setChosenSkills] = useState(data.skills);
   const [pageValid, setPageValid] = useState(false);  
   const [pageError, setPageError] = useState(false);
 
@@ -34,7 +34,6 @@ const Secondpage = ({ data, changeData }) => {
   }, []);
 
 
-  // for testing purposes
   useEffect(() => {
     if(chosenSkills.length>=1){
       console.log("Second page valid");
@@ -42,7 +41,7 @@ const Secondpage = ({ data, changeData }) => {
       setPageError(false);
 
       const dataCopy = {...data};
-      dataCopy["skills"] = chosenSkills.map(skill=>({"id":skill["id"], "experience": parseInt(skill["experience"])}))
+      dataCopy["skills"] = chosenSkills.map(skill=>({"id":skill["id"], language: skill["language"], "experience": parseInt(skill["experience"])}))
 
       changeData(dataCopy);
 

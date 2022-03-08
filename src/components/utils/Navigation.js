@@ -18,7 +18,7 @@ const Navigation = ({
 
   const nextPage = () => {
     const dataCopy = { ...data };
-    console.log("page num: "+page)
+    console.log("page num: " + page);
 
     if (!pageValid) {
       handlePageInvalid();
@@ -27,7 +27,7 @@ const Navigation = ({
 
       // update the page status to completed
       const newArr = data.pagesArr.map((pageObj) => {
-        if ((pageObj.number === page && pageObj.completed === false)) {
+        if (pageObj.number === page && pageObj.completed === false) {
           return { number: page, completed: true };
         } else {
           return pageObj;
@@ -37,15 +37,12 @@ const Navigation = ({
       dataCopy.page = page + 1;
       dataCopy.pagesArr = newArr;
 
-
       changeData(dataCopy);
     }
   };
 
   const prevPage = () => {
-
-      changeData({ ...data, page: page - 1 });
-
+    changeData({ ...data, page: page - 1 });
   };
 
   return (

@@ -7,6 +7,7 @@ import Firstpage from "./pages/Firstpage";
 import Secondpage from "./pages/Secondpage";
 import Thirdpage from "./pages/Thirdpage.js";
 import Fourthpage from "./pages/Fourthpage";
+import Submitpage from "./pages/Submitpage";
 
 // Utils
 import Navigation from "./utils/Navigation";
@@ -22,9 +23,9 @@ const Form = () => {
       { number: 4, completed: false },
       { number: 5, completed: false },
     ],
-    first_name: { content: "", valid: false },
-    last_name: { content: "", valid: false },
-    email: { content: "", valid: false },
+    first_name: { content: "David", valid: false },
+    last_name: { content: "Gasanov", valid: false },
+    email: { content: "davidgasanov@mail.com", valid: false },
     phone: { content: "", valid: true },
     skills: [],
     work_preference: { content: "", valid: false },
@@ -51,6 +52,9 @@ const Form = () => {
         return <Thirdpage data={data} changeData={changeData} />;
       case 4:
           return <Fourthpage data={data} changeData={changeData} />;
+      case 5: 
+          return <Submitpage data={data}/>
+
     }
   };
 

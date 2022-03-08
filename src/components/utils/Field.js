@@ -71,6 +71,7 @@ const Field = ({
         onChange={handleChange}
         onBlur={handleWatching}
         focused={watchAll ? true.toString() : watching.toString()}
+        value={data[name].content}
       />
       <span className="error-message">{label} is required</span>
       <span className="mismatch-message" mismatched={mismatch.toString()}>

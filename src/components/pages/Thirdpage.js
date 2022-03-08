@@ -5,7 +5,6 @@ import Radio from "../utils/Radio";
 import Date from "../utils/Date";
 
 const Thirdpage = ({ data, changeData }) => {
-  
   // local state
   const [pageValid, setPageValid] = useState(false);
   const [showErrors, setShowErrors] = useState(false);
@@ -28,14 +27,21 @@ const Thirdpage = ({ data, changeData }) => {
 
   useEffect(() => {
     if (data.had_covid.content) {
-      changeData({ ...data, had_covid_at: { content: "", valid: false } });
+      if (!data.hasOwnProperty("had_covid_at")){
+        console.log("change COVID calendar data triggered");
+        changeData({ ...data, had_covid_at: { content: "", valid: false } });
+      }
+     
     } else if (!data.had_covid.content && data.hasOwnProperty("had_covid_at")) {
       const dataCopy = { ...data };
       delete dataCopy.had_covid_at;
       changeData(dataCopy);
     }
     if (data.vaccinated.content) {
-      changeData({ ...data, vaccinated_at: { content: "", valid: false } });
+      if (!data.hasOwnProperty("vaccinated_at")){
+        console.log("change VACCINE calendar data triggered");
+        changeData({ ...data, vaccinated_at: { content: "", valid: false } });
+      }
     } else if (
       !data.vaccinated.content &&
       data.hasOwnProperty("vaccinated_at")
@@ -46,12 +52,15 @@ const Thirdpage = ({ data, changeData }) => {
     }
   }, [data.had_covid, data.vaccinated]);
 
+
   useEffect(() => {
     let workPreferenceValid = data.work_preference.valid;
+
 
     let hadCovidValid = data.hasOwnProperty("had_covid_at")
       ? data.had_covid_at.valid
       : data.had_covid.valid;
+
     let vaccinatedValid = data.hasOwnProperty("vaccinated_at")
       ? data.vaccinated_at.valid
       : data.vaccinated.valid;
@@ -91,7 +100,7 @@ const Thirdpage = ({ data, changeData }) => {
         showErrors={showErrors}
       />
 
-      {data.had_covid.content === true ? (
+      {data.hasOwnProperty("had_covid_at") ? (
         <Date
           data={data}
           changeData={changeData}
@@ -113,7 +122,7 @@ const Thirdpage = ({ data, changeData }) => {
         showErrors={showErrors}
       />
 
-      {data.vaccinated.content === true ? (
+      {data.hasOwnProperty("vaccinated_at") ? (
         <Date
           data={data}
           changeData={changeData}

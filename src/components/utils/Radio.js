@@ -28,6 +28,7 @@ const Radio = ({ data, changeData, radioData, title, name, showErrors }) => {
                 type="radio"
                 name={name}
                 value={item.value}
+                checked={data[name].value !== "" &&  data[name].content === item.value ? true : false}
               />
               <label>{item.label}</label>
             </div>
