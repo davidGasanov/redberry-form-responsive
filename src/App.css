@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-
 }
 
 .App-logo {
@@ -48,10 +47,58 @@ h1 {
   color: #fe3b1f;
 }
 
+/* -- General page styling -- */
+
+.page-container {
+  display: flex;
+}
+
+.page-left,
+.page-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-left {
+  width: 50%;
+}
+
+.page-right {
+  width: 50%;
+  height: 100vh;
+  background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+  color: white;
+}
+
+.page-right p {
+  width: 705px;
+  height: 606px;
+}
+
+.page-title {
+  width: 716px;
+  height: 94px;
+  margin-top: 112px;
+  font-size: 64px;
+}
+
+.inputs-container{
+  margin-top: 131px;
+}
+
+.form-input input{
+  width: 455px;
+height: 54px;
+padding-left: 57px;
+font-family: 'Montserrat';
+margin-bottom: 37px;
+}
+
 /* -- Landing -- */
 
 .landing-page {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -63,10 +110,10 @@ h1 {
   background-size: contain;
 }
 
-.landing-title{
+.landing-title {
   font-size: 96px;
-  height:212px;
-  padding-top: 175px; 
+  height: 212px;
+  padding-top: 175px;
   display: flex;
   align-items: center;
 }
@@ -83,7 +130,7 @@ h1 {
   cursor: pointer;
 }
 
-.submitted-apps{
+.submitted-apps {
   margin-top: 18px;
   border: none;
   color: white;

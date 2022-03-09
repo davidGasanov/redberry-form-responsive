@@ -63,7 +63,7 @@ const Field = ({
 
   return (
     <div className="form-input">
-      <label>{label}</label>
+
       <input
         required={required}
         name={name}
