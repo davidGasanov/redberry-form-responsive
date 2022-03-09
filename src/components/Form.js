@@ -17,7 +17,7 @@ const Form = () => {
   const [data, changeData] = useState({
     page: "Landing",
     pagesArr: [
-      { number: 1, completed: false },
+      { number: 1, completed: true },
       { number: 2, completed: false },
       { number: 3, completed: false },
       { number: 4, completed: false },

@@ -74,6 +74,8 @@ h1 {
 .page-right p {
   width: 705px;
   height: 606px;
+  font-size: 24px;
+  line-height: 48px;
 }
 
 .page-title {
@@ -81,6 +83,7 @@ h1 {
   height: 94px;
   margin-top: 112px;
   font-size: 64px;
+  line-height: 80px;
 }
 
 .inputs-container{
@@ -145,7 +148,27 @@ margin-bottom: 37px;
 
 .pagination {
   display: flex;
+  justify-content: space-between;
+  width: 230px;
 }
+
+.page-completed{
+  width: 19px;
+  height: 19px;
+  border: none;
+  background-color:#FE3B1F;
+  border-radius: 50%;
+}
+
+.page-not-completed{
+  width: 19px;
+  height: 19px;
+  border: none;
+  background-color:#FE3B1F;
+  opacity:0.1;
+  border-radius: 50%;
+}
+
 
 /* -- Field -- */
 
