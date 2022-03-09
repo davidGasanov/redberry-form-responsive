@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body{
+  height: 100%;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -37,8 +41,7 @@
   }
 }
 
-h1,
-h2 {
+h1 {
   font-family: "Rowdies", cursive;
   margin: 0;
   padding: 0;
@@ -49,8 +52,12 @@ h1 {
 
 /* -- General page styling -- */
 
+
 .page-container {
   display: flex;
+  min-height: 1080px;
+  height: auto;
+  box-sizing: border-box;
 }
 
 .page-left,
@@ -58,15 +65,17 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .page-left {
   width: 50%;
+
 }
 
 .page-right {
+
   width: 50%;
-  height: 100vh;
   background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
   color: white;
 }
@@ -80,22 +89,37 @@ h1 {
 
 .page-title {
   width: 716px;
-  height: 94px;
-  margin-top: 112px;
+  height: auto;
+  margin: 112px 0 120px 0;
   font-size: 64px;
   line-height: 80px;
+  text-align: center;
 }
 
-.inputs-container{
-  margin-top: 131px;
+.form-input {
+  margin-bottom: 37px;
 }
 
-.form-input input{
+.form-input input,
+.skill-form input,
+.skills-menu,
+.date-container input {
   width: 455px;
-height: 54px;
-padding-left: 57px;
-font-family: 'Montserrat';
-margin-bottom: 37px;
+  height: 54px;
+  box-sizing: border-box;
+  background: none;
+  border: 1px solid #525557;
+  padding-left: 57px;
+  font-family: "Montserrat";
+  font-style: italic;
+  font-size: 14px;
+  color: #454545;
+}
+
+.mismatch-message,
+.input-error,
+.error-message {
+  text-align: right;
 }
 
 /* -- Landing -- */
@@ -149,26 +173,45 @@ margin-bottom: 37px;
 .pagination {
   display: flex;
   justify-content: space-between;
+  margin: 150px 0 150px 0;
   width: 230px;
+  
 }
 
-.page-completed{
+.page-completed,
+.page-not-completed {
   width: 19px;
   height: 19px;
   border: none;
-  background-color:#FE3B1F;
+  background-color: #fe3b1f;
   border-radius: 50%;
+  cursor: pointer;
 }
 
-.page-not-completed{
+.page-not-completed {
+  opacity: 0.1;
+}
+
+.next-page,
+.prev-page {
   width: 19px;
   height: 19px;
   border: none;
-  background-color:#FE3B1F;
-  opacity:0.1;
-  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
 }
 
+.next-page {
+  background: url("../public/Next.png");
+  background-position: center;
+  background-size: contain;
+}
+
+.prev-page {
+  background: url("../public/Previous.png");
+  background-position: center;
+  background-size: contain;
+}
 
 /* -- Field -- */
 
@@ -182,6 +225,7 @@ margin-bottom: 37px;
 }
 
 .error-message[visible="true"] {
+  width: 455px;
   display: block;
 }
 
@@ -208,6 +252,121 @@ input[focused="true"][empty="true"] {
   display: block;
 }
 
-.skill-box {
+/* -- Dropdown -- */
+
+.skill-form {
+  width: 455px;
   display: flex;
+  flex-direction: column;
+}
+
+.year-input {
+  margin-top: 31px;
+}
+
+.skill-form input[type="submit"] {
+  margin-top: 30px;
+  width: 200px;
+  height: 32px;
+  background: #fe3b1f;
+  color: white;
+  border: none;
+  font-size: 12px;
+  font-style: normal;
+  text-align: center;
+  padding: 0;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.skill-form .skills-menu option {
+  font-family: "Montserrat";
+  font-style: normal;
+  margin: 40px;
+  background: white;
+  color: #fff;
+}
+
+/* -- Skills -- */
+
+.skill-box {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  margin-top: 17px;
+  width: 455px;
+  height: 48px;
+  border: 1px solid #525557;
+  align-content: center;
+  box-sizing: border-box;
+  font-style: italic;
+}
+
+.skill-name {
+  padding-left: 20px;
+}
+
+.skill-exp {
+  padding-left: 30px;
+}
+
+.skill-remove {
+  background: url("../public/Remove.png") no-repeat right;
+  border: none;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.skills-container {
+  margin: 50px 0 50px 0;
+}
+
+/* -- Radio -- */
+
+.radio-container,
+.date-container {
+  margin-bottom: 55px;
+  width: 645px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  font-family: "Montserrat";
+}
+
+h2 {
+  font: normal 18px "Montserrat";
+}
+
+.radio-line {
+  margin-top: 17px;
+
+}
+
+.radio-line label {
+  margin-left: 7px;
+}
+
+/* -- Textfield -- */
+
+textarea{
+  width: 535px;
+  min-height:122px;
+  resize: none;
+}
+
+.textfield-container{
+  width: 645px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+
+}
+
+.textfield-container .error-message{
+  width: 535px;
+}
+
+@media (min-width: 1080px){
+  .global-div{
+    height: auto;
+  }
 }

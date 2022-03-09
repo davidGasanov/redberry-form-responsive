@@ -11,12 +11,12 @@ const handleClick=(e)=>{
 }
 
   return (
-    <div>
+    <div class="skills-container">
         {chosenSkills.map((skill)=>{
             return (<div className="skill-box">
                 <span className={"skill-name"}>{skill["language"]}</span>
                 <span className={"skill-exp"}>Years of Experience: {skill["experience"]}</span>
-                <button onClick={handleClick} id={skill["id"]} className={"skill-remove"}>rem</button>
+                <button onClick={handleClick} id={skill["id"]} className={"skill-remove"}/>
             </div>)
         })}
     </div>

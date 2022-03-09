@@ -5,14 +5,18 @@ const Date = ({ data, changeData, title, name, showErrors}) => {
     console.log(e.target.name + " " + e.target.value);
     changeData({
       ...data,
-      [e.target.name]: { content: e.target.value, valid: true },
+      [e.target.name]: { content: e.target.value, valid: e.target.value? true : false},
     });
   };
 
+  const onFocus = (e) =>{
+    e.currentTarget.type = "date";
+  }
+
   return (
-    <div>
+    <div className="date-container">
       <h2>{title}</h2>
-      <input onChange={handleChange} value={data[name].content} type="date" name={name}/>
+      <input placeholder={'Date'} onChange={handleChange} value={data[name].content} type="text" onFocus={onFocus} name={name}/>
       <span visible={!(data[name].valid) && showErrors ? "true" : "false"} className="error-message">Please pick a date</span>
     </div>
   );

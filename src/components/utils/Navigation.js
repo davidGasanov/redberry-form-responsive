@@ -9,11 +9,10 @@ const Navigation = ({
 }) => {
   const { page } = data;
 
-  const changePage = (e) => {
-    if (!pageValid) {
-    } else {
-      changeData({ ...data, page: e.target.value });
-    }
+  const changePage = (num) => {
+    if (data.pagesArr[num-1].completed) {
+      changeData({ ...data, page: num })
+    } 
   };
 
   const nextPage = () => {
@@ -47,21 +46,27 @@ const Navigation = ({
 
   return (
     <div className="pagination">
-      <button onClick={prevPage}>Prev</button>
-      {data.pagesArr.map((page) => {
-        if (page.completed) {
+      <button className="prev-page" onClick={prevPage}></button>
+      {data.pagesArr.map((pageObj) => {
+        if (pageObj.number === page){
           return (
             <buttton
               className="page-completed"
-              value={page.number}
-              onClick={changePage}
+            ></buttton>
+          )
+        } else if (pageObj.completed) {
+          return (
+            <buttton
+              className="page-completed"
+              value={pageObj.number}
+              onClick={()=>{changePage(pageObj.number)}}
             ></buttton>
           );
         } else {
           return <buttton className="page-not-completed"></buttton>;
         }
       })}
-      <button onClick={nextPage}>Next</button>
+      <button className="next-page" onClick={nextPage}></button>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useRef, } from "react";
 import Navigation from "../utils/Navigation";
 import Field from "../utils/Field";
 
@@ -10,6 +10,14 @@ const Firstpage = ({ data, changeData }) => {
   const handlePageInvalid = () => {
     setWatchAll(true);
   };
+
+  const targetRef = useRef();
+
+  useLayoutEffect(() => {
+    if (targetRef.current) {
+      changeData({...data, global_height: targetRef.current.offsetHeight})
+    }
+  }, []);
 
   useEffect(() => {
     if (
@@ -26,7 +34,7 @@ const Firstpage = ({ data, changeData }) => {
   }, [data]);
 
   return (
-    <div className="page-container">
+    <div ref={targetRef} className="page-container">
       <div className="page-left">
         <h1 className="page-title">
           Hey, Rocketeer, what are your coordinates?
@@ -37,7 +45,7 @@ const Firstpage = ({ data, changeData }) => {
             data={data}
             name={"first_name"}
             label={"First Name"}
-            errorMessage={"first name should include at least 3 characters"}
+            errorMessage={"*first name should include at least 3 characters"}
             required={false}
             pattern="^[A-Za-z]{2,}[A-Za-z]$"
             watchAll={watchAll}
@@ -48,7 +56,7 @@ const Firstpage = ({ data, changeData }) => {
             data={data}
             name={"last_name"}
             label={"Last Name"}
-            errorMessage={"last name should include at least 3 characters"}
+            errorMessage={"*last name should include at least 3 characters"}
             pattern={"^[A-Za-z]{2,}[A-Za-z]$"}
             required={false}
             watchAll={watchAll}
@@ -59,7 +67,7 @@ const Firstpage = ({ data, changeData }) => {
             data={data}
             name={"email"}
             label={"Your email"}
-            errorMessage={"should be a valid email"}
+            errorMessage={"*should be a valid email"}
             pattern={"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[.][a-z]+$"}
             required={false}
             watchAll={watchAll}
@@ -71,7 +79,7 @@ const Firstpage = ({ data, changeData }) => {
             name={"phone"}
             label={"+995 5_ _ _ _"}
             errorMessage={
-              "needs to be formatted according to georgian standards"
+              "*needs to be formatted according to georgian standards"
             }
             pattern={"^[+]9955\\d{8}$"}
             required={false}

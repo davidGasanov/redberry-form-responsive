@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-const Dropdown = ({ skills, chosenSkills, setChosenSkills }) => {
+const Dropdown = ({ skills, chosenSkills, setChosenSkills, pageError }) => {
   // local state
 
   const [watching, setWatching] = useState(false);
@@ -71,7 +71,7 @@ const Dropdown = ({ skills, chosenSkills, setChosenSkills }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="skill-form" onSubmit={handleSubmit}>
       <select
         className={"skills-menu"}
         name={"skills"}
@@ -92,7 +92,10 @@ const Dropdown = ({ skills, chosenSkills, setChosenSkills }) => {
           <option>Skills are loading...</option>
         )}
       </select>
-      <span className={"language-error"} visible={languageError.toString()}>
+      <span className="error-message" visible={pageError.toString()}>
+          Please add at least one skill.
+        </span>
+      <span className="language-error" visible={languageError.toString()}>
         This language has already been selected.
       </span>
       <input

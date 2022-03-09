@@ -18,12 +18,12 @@ const Radio = ({ data, changeData, radioData, title, name, showErrors }) => {
   };
 
   return (
-    <div>
+    <div className="radio-container">
       <h2>{title}</h2>
       <div onChange={handleChange}>
         {radioData.map((item) => {
           return (
-            <div>
+            <div className="radio-line">
               <input
                 type="radio"
                 name={name}
@@ -32,11 +32,10 @@ const Radio = ({ data, changeData, radioData, title, name, showErrors }) => {
               />
               <label>{item.label}</label>
             </div>
-            
           );
         })}
       </div>
-      <span visible={!(data[name].valid) && showErrors ? "true" : "false"} className="error-message">Please select an option</span>
+      <span visible={!(data[name].valid) && showErrors ? "true" : "false"} className="error-message">*Please select an option</span>
     </div>
   );
 };

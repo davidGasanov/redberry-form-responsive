@@ -15,9 +15,9 @@ import Navigation from "./utils/Navigation";
 const Form = () => {
   // State
   const [data, changeData] = useState({
-    page: "Landing",
+    page: 4,
     pagesArr: [
-      { number: 1, completed: true },
+      { number: 1, completed: false },
       { number: 2, completed: false },
       { number: 3, completed: false },
       { number: 4, completed: false },
@@ -61,7 +61,7 @@ const Form = () => {
     }
   };
 
-  return <div>{switchRender(data.page)}</div>;
+  return <div className="global-div" >{switchRender(data.page)}</div>;
 };
 
 export default Form;
