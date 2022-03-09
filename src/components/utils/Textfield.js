@@ -12,7 +12,7 @@ const Textfield = ({data, changeData, title, name, showErrors}) => {
   return (
     <div className="textfield-container">
         <h2>{title}</h2>
-        <textarea onChange={handleChange} name={name}/>
+        <textarea value={data[name].content} onChange={handleChange} name={name}/>
         <span visible={!(data[name].valid) && showErrors ? "true" : "false"} className="error-message">*Please fill out this field</span>
     </div>
   );

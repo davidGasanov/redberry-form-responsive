@@ -8,9 +8,9 @@ const Landing = ({ data, changeData }) => {
   };
   return (
     <div className="landing-page">
-      <h1 className="landing-title">Welcome Rocketeer!</h1>
+      <h1 className="large-title">Welcome Rocketeer!</h1>
       <button className="submit-button" onClick={handleClick}>Start Questionnaire</button>
-      <button className="submitted-apps" onClick={handleClick}>Submitted Applications</button>
+      <button className="underline-button" onClick={handleClick}>Submitted Applications</button>
       <img src={rocketman}/>
     </div>
   );

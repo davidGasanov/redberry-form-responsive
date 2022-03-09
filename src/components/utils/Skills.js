@@ -11,7 +11,7 @@ const handleClick=(e)=>{
 }
 
   return (
-    <div class="skills-container">
+    <div className="skills-container">
         {chosenSkills.map((skill)=>{
             return (<div className="skill-box">
                 <span className={"skill-name"}>{skill["language"]}</span>

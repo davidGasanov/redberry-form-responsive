@@ -116,7 +116,7 @@ const Thirdpage = ({ data, changeData }) => {
         />
       </div>
       <div className="page-right">
-      <h1 className="page-title">A bit about our battles</h1>
+      <h1 className="page-title">Redberry Covid Policies</h1>
         <p>
           As this infamous pandemic took over the world, we adjusted our working
           practices so that our employees can be as safe and comfortable as
