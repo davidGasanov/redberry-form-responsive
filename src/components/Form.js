@@ -30,8 +30,11 @@ const Form = () => {
     skills: [],
     work_preference: { content: "", valid: false },
     had_covid: { content: "", valid: false },
+    had_covid_at: {content: "", valid: false},
     vaccinated: {content: "", valid: false},
+    vaccinated_at:{content:"", valid: false},
     will_organize_devtalk: {content: "", valid: false},
+    devtalk_topic: {content: "", valid: false},
     something_special: {content: "", valid: false},
   });
 

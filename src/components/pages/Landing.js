@@ -1,4 +1,5 @@
 import React from "react";
+import rocketman from "../../imgs/rocketman.png"
 
 const Landing = ({ data, changeData }) => {
   const handleClick = () => {
@@ -6,9 +7,11 @@ const Landing = ({ data, changeData }) => {
     changeData({ ...data, page: 1 });
   };
   return (
-    <div>
-      <h1>This is the landing page</h1>
-      <button onClick={handleClick}>Go to first page</button>
+    <div className="landing-page">
+      <h1 className="landing-title">Welcome Rocketeer!</h1>
+      <button className="submit-button" onClick={handleClick}>Start Questionnaire</button>
+      <button className="submitted-apps" onClick={handleClick}>Submitted Applications</button>
+      <img src={rocketman}/>
     </div>
   );
 };

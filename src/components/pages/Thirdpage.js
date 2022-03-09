@@ -25,43 +25,17 @@ const Thirdpage = ({ data, changeData }) => {
 
   // ------------------------------------
 
-  useEffect(() => {
-    if (data.had_covid.content) {
-      if (!data.hasOwnProperty("had_covid_at")){
-        console.log("change COVID calendar data triggered");
-        changeData({ ...data, had_covid_at: { content: "", valid: false } });
-      }
-     
-    } else if (!data.had_covid.content && data.hasOwnProperty("had_covid_at")) {
-      const dataCopy = { ...data };
-      delete dataCopy.had_covid_at;
-      changeData(dataCopy);
-    }
-    if (data.vaccinated.content) {
-      if (!data.hasOwnProperty("vaccinated_at")){
-        console.log("change VACCINE calendar data triggered");
-        changeData({ ...data, vaccinated_at: { content: "", valid: false } });
-      }
-    } else if (
-      !data.vaccinated.content &&
-      data.hasOwnProperty("vaccinated_at")
-    ) {
-      const dataCopy = { ...data };
-      delete dataCopy.vaccinated_at;
-      changeData(dataCopy);
-    }
-  }, [data.had_covid, data.vaccinated]);
 
 
   useEffect(() => {
     let workPreferenceValid = data.work_preference.valid;
 
 
-    let hadCovidValid = data.hasOwnProperty("had_covid_at")
+    let hadCovidValid = data.had_covid.content
       ? data.had_covid_at.valid
       : data.had_covid.valid;
 
-    let vaccinatedValid = data.hasOwnProperty("vaccinated_at")
+    let vaccinatedValid = data.vaccinated.content
       ? data.vaccinated_at.valid
       : data.vaccinated.valid;
 
@@ -82,7 +56,7 @@ const Thirdpage = ({ data, changeData }) => {
         title={"how would you prefer to work?"}
         name={"work_preference"}
         radioData={[
-          { value: "from_sairme_office", label: "From Sairme Office" },
+          { value: "from_office", label: "From Sairme Office" },
           { value: "from_home", label: "From Home" },
           { value: "hybrid", label: "Hybrid" },
         ]}
@@ -100,7 +74,7 @@ const Thirdpage = ({ data, changeData }) => {
         showErrors={showErrors}
       />
 
-      {data.hasOwnProperty("had_covid_at") ? (
+      {data.had_covid.content ? (
         <Date
           data={data}
           changeData={changeData}
@@ -122,7 +96,7 @@ const Thirdpage = ({ data, changeData }) => {
         showErrors={showErrors}
       />
 
-      {data.hasOwnProperty("vaccinated_at") ? (
+      {data.vaccinated.content ? (
         <Date
           data={data}
           changeData={changeData}

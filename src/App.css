@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -37,6 +38,62 @@
   }
 }
 
+h1,
+h2 {
+  font-family: "Rowdies", cursive;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: #fe3b1f;
+}
+
+/* -- Landing -- */
+
+.landing-page {
+  font-family: 'Montserrat';
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  background: black url("../public/stars.png");
+  background-size: contain;
+}
+
+.landing-title{
+  font-size: 96px;
+  height:212px;
+  padding-top: 175px; 
+  display: flex;
+  align-items: center;
+}
+
+.submit-button {
+  width: 395px;
+  height: 79px;
+  margin-top: 105px;
+  background: #fe3b1f;
+  border-radius: 50px;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.submitted-apps{
+  margin-top: 18px;
+  border: none;
+  color: white;
+  background: none;
+  height: 66px;
+  font-size: 24px;
+  cursor: pointer;
+  text-decoration-line: underline;
+}
+
 /* -- Navigation -- */
 
 .pagination {
@@ -45,41 +102,42 @@
 
 /* -- Field -- */
 
-.error-message, .mismatch-message, .input-error, .language-error {
+.error-message,
+.mismatch-message,
+.input-error,
+.language-error {
   color: red;
   font-size: 15px;
   display: none;
 }
 
-.error-message[visible="true"]{
+.error-message[visible="true"] {
   display: block;
 }
 
-.mismatch-message[mismatched="true"]{
+.mismatch-message[mismatched="true"] {
   display: block;
 }
 
-input:invalid[focused="true"] ~ .error-message{
-  display: block; 
+input:invalid[focused="true"] ~ .error-message {
+  display: block;
 }
 
-
-input:invalid[focused="true"], input[focused="true"][empty="true"]{
+input:invalid[focused="true"],
+input[focused="true"][empty="true"] {
   border: 1px solid red;
 }
 
-
-
-.year-input[focused="true"] ~ .input-error[empty="true"], .input-error[mismatched="true"]{
+.year-input[focused="true"] ~ .input-error[empty="true"],
+.input-error[mismatched="true"] {
   display: block;
   border: red;
 }
 
-.skills-menu[focused="true"] ~ span[visible="true"]{
+.skills-menu[focused="true"] ~ span[visible="true"] {
   display: block;
-} 
-
-.skill-box{
-  display: flex;
 }
 
+.skill-box {
+  display: flex;
+}

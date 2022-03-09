@@ -14,7 +14,7 @@ const Fourthpage = ({ data, changeData }) => {
   useEffect(() => {
 
 
-    let devTalksValid = data.hasOwnProperty("devtalk_topic")
+    let devTalksValid = data.will_organize_devtalk.content
       ? data.devtalk_topic.valid
       : data.will_organize_devtalk.valid;
     let somethingSpecialValid = data.something_special.valid 
@@ -32,16 +32,6 @@ const Fourthpage = ({ data, changeData }) => {
     setShowErrors(true);
   };
 
-  useEffect(() => {
-    if (data.will_organize_devtalk.content) {
-      changeData({ ...data, devtalk_topic: { content: "", valid: false } });
-    } else if (!data.will_organize_devtalk.content && data.hasOwnProperty("devtalk_topic")) {
-      const dataCopy = { ...data };
-      delete dataCopy.devtalk_topic;
-      changeData(dataCopy);
-    }
-
-  }, [data.will_organize_devtalk]);
 
   return (
     <div>
@@ -58,7 +48,7 @@ const Fourthpage = ({ data, changeData }) => {
         showErrors={showErrors}
       />
 
-      {data.hasOwnProperty('devtalk_topic') ? (
+      {data.will_organize_devtalk.content ? (
         <Textfield
           data={data}
           changeData={changeData}

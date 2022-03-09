@@ -13,7 +13,7 @@ const Date = ({ data, changeData, title, name, showErrors}) => {
     <div>
       <h2>{title}</h2>
       <input onChange={handleChange} value={data[name].content} type="date" name={name}/>
-      <span visible={data[name] && !(data[name].valid) && showErrors ? "true" : "false"} className="error-message">Please pick a date</span>
+      <span visible={!(data[name].valid) && showErrors ? "true" : "false"} className="error-message">Please pick a date</span>
     </div>
   );
 };

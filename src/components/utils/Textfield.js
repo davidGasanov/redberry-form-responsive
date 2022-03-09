@@ -6,7 +6,7 @@ const Textfield = ({data, changeData, title, name, showErrors}) => {
 
   const handleChange=(e)=>{
     const contentValid = e.target.value!==""? true : false;
-    changeData({...data, [name]: {value: e.target.value, valid: contentValid}})
+    changeData({...data, [name]: {content: e.target.value, valid: contentValid}})
   }
 
   return (
