@@ -28,33 +28,29 @@ const Field = ({
 
     if (required) {
       if (regex.test(input)) {
-        setValid(true);
+        dataCopy[name].valid = true;
+        console.log("Data valid: "+dataCopy[name].valid)
       } else {
-        setValid(false);
+        dataCopy[name].valid = false;
       }
-    } else {
-      if (input === "") {
-        setValid(true);
-      } else if (regex.test(input)) {
-        setValid(true);
-      } else {
-        setValid(false);
+    } 
+      if (!required && input === "") {
+        dataCopy[name].valid = true;
+      } 
+      if (!required && input!== "" && regex.test(input)) {
+        dataCopy[name].valid = true;
+      } else if (!required && input!== "" && !regex.test(input)){
+        dataCopy[name].valid = false;
       }
-    }
 
-    changeData(dataCopy);
+
+    changeData({...dataCopy});
   };
 
   // local state
   const [watching, setWatching] = useState(false);
   // mismatch is only used for the seprate error message
   const [mismatch, setMismatch] = useState(false);
-  const [valid, setValid] = useState(required? false : true);
-
-  useEffect(() => {
-    const dataCopy = { ...data };
-    dataCopy[name].valid = valid;
-  }, [valid]);
 
   const handleWatching = () => {
     setWatching(true);

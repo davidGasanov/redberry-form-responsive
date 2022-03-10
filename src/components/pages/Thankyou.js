@@ -4,7 +4,8 @@ import { useEffect } from "react";
 const Thankyou = ({ data, changeData }) => {
   useEffect(() => {
     setTimeout(() => {
-      changeData({ ...data, page: "landing" });
+      changeData({ ...data, page: 0 });
+      window.location.reload(false);
     }, 3000);
   }, []);
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useLayoutEffect, useRef, } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "../utils/Navigation";
 import Field from "../utils/Field";
 
@@ -11,13 +11,6 @@ const Firstpage = ({ data, changeData }) => {
     setWatchAll(true);
   };
 
-  const targetRef = useRef();
-
-  useLayoutEffect(() => {
-    if (targetRef.current) {
-      changeData({...data, global_height: targetRef.current.offsetHeight})
-    }
-  }, []);
 
   useEffect(() => {
     if (
@@ -34,7 +27,7 @@ const Firstpage = ({ data, changeData }) => {
   }, [data]);
 
   return (
-    <div ref={targetRef} className="page-container">
+    <div className="page-container">
       <div className="page-left">
         <h1 className="page-title">
           Hey, Rocketeer, what are your coordinates?
@@ -46,7 +39,7 @@ const Firstpage = ({ data, changeData }) => {
             name={"first_name"}
             label={"First Name"}
             errorMessage={"*first name should include at least 3 characters"}
-            required={false}
+            required={true}
             pattern="^[A-Za-z]{2,}[A-Za-z]$"
             watchAll={watchAll}
             setWatchAll={setWatchAll}
@@ -58,7 +51,7 @@ const Firstpage = ({ data, changeData }) => {
             label={"Last Name"}
             errorMessage={"*last name should include at least 3 characters"}
             pattern={"^[A-Za-z]{2,}[A-Za-z]$"}
-            required={false}
+            required={true}
             watchAll={watchAll}
             setWatchAll={setWatchAll}
           />
@@ -66,10 +59,10 @@ const Firstpage = ({ data, changeData }) => {
             changeData={changeData}
             data={data}
             name={"email"}
-            label={"Your email"}
+            label={"E mail"}
             errorMessage={"*should be a valid email"}
-            pattern={"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[.][a-z]+$"}
-            required={false}
+            pattern={"^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+[.][a-z]+$"}
+            required={true}
             watchAll={watchAll}
             setWatchAll={setWatchAll}
           />

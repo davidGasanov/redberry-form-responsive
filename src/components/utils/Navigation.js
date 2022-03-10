@@ -50,20 +50,20 @@ const Navigation = ({
       {data.pagesArr.map((pageObj) => {
         if (pageObj.number === page){
           return (
-            <buttton
+            <button
               className="page-completed"
-            ></buttton>
+            ></button>
           )
         } else if (pageObj.completed) {
           return (
-            <buttton
+            <button
               className="page-completed"
               value={pageObj.number}
               onClick={()=>{changePage(pageObj.number)}}
-            ></buttton>
+            ></button>
           );
         } else {
-          return <buttton className="page-not-completed"></buttton>;
+          return <button className="page-not-completed"></button>;
         }
       })}
       <button className="next-page" onClick={nextPage}></button>

@@ -83,7 +83,7 @@ const Dropdown = ({ skills, chosenSkills, setChosenSkills, pageError }) => {
           Skills
         </option>
         {skills ? (
-          skills.map((skill) => (
+          skills.map((skill, index) => (
             <option name={skill.title} key={skill.id}>
               {skill.title}
             </option>

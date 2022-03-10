@@ -25,7 +25,7 @@ const Secondpage = ({ data, changeData }) => {
   // get the skills from the API
   useEffect(() => {
     axios
-      .get("https://bootcamp-2022.devtest.ge/api/skills")
+      .get("https://bootcamp-2022.devtest.ge/api/skills",)
       .then((response) => {
         console.log("get response: " + JSON.stringify(response.data));
         setSkills(response.data);

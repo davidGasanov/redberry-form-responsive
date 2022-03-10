@@ -11,7 +11,7 @@ const Submitpage = ({ data, changeData }) => {
 
 
     const postData = {
-      token: "0996b49a-4c99-4621-89f8-70b33b60b48f",
+      token: "3ddee076-733b-4586-8ce3-53e4eaef904a",
       first_name: data.first_name.content,
       last_name: data.last_name.content,
       email: data.email.content,
@@ -30,6 +30,8 @@ const Submitpage = ({ data, changeData }) => {
       },
     };
 
+
+
     if(!postData.phone.content){
       delete postData.phone
     }
@@ -44,32 +46,7 @@ const Submitpage = ({ data, changeData }) => {
       delete postData.devtalk_topic
     }
 
-
-    const postData2 = {
-      token: "cba65393-5fae-4543-86f2-664fd124ebdd",
-      first_name: "gela",
-      last_name: "gelashvili",
-      email: "gelashvili@gela.ge",
-      phone: "",
-      skills: [
-        {
-          id: 1,
-          experience: 3,
-        },
-      ],
-      work_preference: "from_home",
-      had_covid: true,
-      had_covid_at: "2022-02-23",
-      vaccinated: true,
-      vaccinated_at: "2022-02-23",
-      will_organize_devtalk: true,
-      devtalk_topic: "I would ...",
-      something_special: "I am special!",
-      headers: {
-        Accept: "application/json",
-      },
-    };
-
+ 
     console.log("Post data: " + JSON.stringify(postData));
     axios
       .post("https://bootcamp-2022.devtest.ge/api/application", postData)
@@ -81,6 +58,9 @@ const Submitpage = ({ data, changeData }) => {
         console.log(err);
       });
   };
+  useEffect(()=>{
+    console.log(data.had_covid_at.content);
+  },[])
 
   return (
     <div className="submit-page">

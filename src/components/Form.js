@@ -15,7 +15,7 @@ import Submittedapps from "./pages/Submittedapps";
 const Form = () => {
   // State
   const [data, changeData] = useState({
-    page: 1,
+    page: 0,
     pagesArr: [
       { number: 1, completed: false },
       { number: 2, completed: false },
@@ -23,9 +23,9 @@ const Form = () => {
       { number: 4, completed: false },
       { number: 5, completed: false },
     ],
-    first_name: { content: "David", valid: false },
-    last_name: { content: "Gasanov", valid: false },
-    email: { content: "davidgasanov@mail.com", valid: false },
+    first_name: { content: "", valid: false },
+    last_name: { content: "", valid: false },
+    email: { content: "", valid: false },
     phone: { content: "", valid: true },
     skills: [],
     work_preference: { content: "", valid: false },
@@ -38,14 +38,10 @@ const Form = () => {
     something_special: { content: "", valid: false },
   });
 
-  useEffect(() => {
-    console.log(data);
-  });
-
   // switchRender
   const switchRender = (page) => {
     switch (page) {
-      case "landing":
+      case 0:
         return <Landing data={data} changeData={changeData} />;
       case 1:
         return <Firstpage data={data} changeData={changeData} />;

@@ -12,8 +12,8 @@ const handleClick=(e)=>{
 
   return (
     <div className="skills-container">
-        {chosenSkills.map((skill)=>{
-            return (<div className="skill-box">
+        {chosenSkills.map((skill, index)=>{
+            return (<div key={index} className="skill-box">
                 <span className={"skill-name"}>{skill["language"]}</span>
                 <span className={"skill-exp"}>Years of Experience: {skill["experience"]}</span>
                 <button onClick={handleClick} id={skill["id"]} className={"skill-remove"}/>
