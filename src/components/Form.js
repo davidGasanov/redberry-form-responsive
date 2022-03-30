@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 // Pages
 import Landing from "./pages/Landing";
@@ -9,7 +9,6 @@ import Thirdpage from "./pages/Thirdpage.js";
 import Fourthpage from "./pages/Fourthpage";
 import Submitpage from "./pages/Submitpage";
 import Thankyou from "./pages/Thankyou";
-import Submittedapps from "./pages/Submittedapps";
 
 
 const Form = () => {
@@ -55,8 +54,6 @@ const Form = () => {
         return <Submitpage data={data} changeData={changeData} />;
       case "thank_you":
         return <Thankyou data={data} changeData={changeData} />;
-      case "submitted":
-        return <Submittedapps data={data} changeData={changeData}/>
       
     }
   };
