@@ -1,3 +1,7 @@
+.html{
+  height: 100%;
+}
+
 .App {
   text-align: center;
 }
@@ -48,8 +52,7 @@ h1 {
 
 .page-container {
   display: flex;
-  min-height: 100vh;
-
+  height: 100%;
   box-sizing: border-box;
 }
 
@@ -93,7 +96,7 @@ h1 {
   line-height: 80px;
 }
 
-.page-right h1{
+.page-right h1 {
   text-align: center;
 }
 
@@ -154,10 +157,9 @@ h1 {
   cursor: pointer;
 }
 
-.submit-button:focus{
+.submit-button:focus {
   background: #fc644d;
-  cursor:default;
-
+  cursor: default;
 }
 
 .astro {
@@ -563,9 +565,6 @@ textarea {
     height: auto;
   }
 
-
-
-
   .page-container {
     flex-direction: column;
     align-items: center;
@@ -657,25 +656,184 @@ textarea {
     height: 54px;
   }
 
-  .radio-container, .textfield-container {
+  .radio-container,
+  .textfield-container {
     width: 80%;
     margin-top: 40px;
     margin-bottom: 0;
   }
 
-  .textfield-container textarea{
+  .textfield-container textarea {
     width: 100%;
   }
 
-  .radio-container h2{
+  .radio-container h2 {
     margin-bottom: 10px;
   }
 
-  .radio-line{
+  .radio-line {
     margin-top: 10px;
   }
 
+  .date-container {
+    width: 80%;
+    margin: 20px 0;
+  }
 
+  .date-container input {
+    width: 100%;
+  }
+
+  textarea[name="something_special"] {
+    width: 100%;
+  }
+
+  .large-title {
+    text-align: center;
+  }
+}
+
+/* IPADS, TABLETS */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .large-title {
+    font-size: 40px;
+    height: auto;
+  }
+
+  .astro {
+    margin-top: 50px;
+  }
+
+  .page-container {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .page-title {
+    font-size: 35px;
+    min-width: 400px;
+    width: 90%;
+    line-height: 25px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .inputs-container {
+    margin-top: 50px;
+    min-width: 340px;
+    width: 60%;
+  }
+
+  .submit-button {
+    min-width: 320px;
+    width: 50%;
+    font-size: 20px;
+    height: 80px;
+    margin-top: 50px;
+  }
+
+  .page-left {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+  }
+
+  .page-right {
+    min-height: 100%;
+    height: 60vh;
+    width: 100%;
+  }
+
+  .page-left {
+    justify-content: space-evenly;
+    height: auto;
+  }
+
+  .pagination {
+    margin: 50px 0;
+  }
+
+  .error-message[visible="true"] {
+    width: 100%;
+  }
+
+  .form-input {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .form-input input {
+    width: 100%;
+  }
+
+  .page-right p {
+    font-size: 18px;
+    line-height: 35px;
+    width: 80%;
+    height: 30%;
+    margin-bottom: 100px;
+  }
+
+  .landing-page {
+    justify-content: center;
+    gap: 50px;
+  }
+
+  .skills-container {
+    width: 80%;
+    margin-top: 20px;
+  }
+
+  .skill-box {
+    width: 100%;
+  }
+
+  .skill-form {
+    min-width: 360px;
+    width: 60%;
+    margin-top: 30px;
+  }
+
+  .skills-menu,
+  .year-input {
+    padding-left: 20px;
+    width: 100%;
+  }
+
+  .skill-form input[type="submit"] {
+    width: 100%;
+    height: 54px;
+    font-size: 15px;
+  }
+
+  .radio-container, .pagination{
+    width: 280px;
+  }
+
+  .pagination{
+    justify-content: space-between;
+  }
+
+  .textfield-container {
+    min-width: 380px;
+    width: 60%;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  .textfield-container textarea {
+    width: 100%;
+  }
+
+  .radio-container h2 {
+    margin-bottom: 10px;
+  }
+
+  .radio-line {
+    margin-top: 10px;
+  }
 
   .date-container {
     width: 80%;
@@ -696,15 +854,15 @@ textarea {
 }
 
 
-/* MOBILE */
+/* IPADS, TABLETS */
 
-@media (max-width:768px) {
+@media (min-width: 481px) and (max-width: 768px) {
   .large-title {
     font-size: 40px;
     height: auto;
   }
 
-  .astro{
+  .astro {
     margin-top: 50px;
   }
 
@@ -715,25 +873,38 @@ textarea {
   }
 
   .page-title {
-    font-size: 30px;
-    width: 300px;
+    font-size: 35px;
+    min-width: 400px;
+    width: 90%;
     line-height: 25px;
-    text-align: left;
     margin-top: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     text-align: center;
   }
 
+  .inputs-container {
+    margin-top: 50px;
+    min-width: 340px;
+    width: 60%;
+  }
+
   .submit-button {
-    width: 70%;
+    min-width: 320px;
+    width: 50%;
     font-size: 20px;
-    height: 60px;
+    height: 80px;
     margin-top: 50px;
   }
 
-  .page-left,
-  .page-right {
+  .page-left {
     height: 100%;
+    width: 100%;
+    align-items: center;
+  }
+
+  .page-right {
+    min-height: 100%;
+    height: 60vh;
     width: 100%;
   }
 
@@ -744,10 +915,6 @@ textarea {
 
   .pagination {
     margin: 50px 0;
-  }
-
-  .inputs-container {
-    width: 80%;
   }
 
   .error-message[visible="true"] {
@@ -763,10 +930,10 @@ textarea {
   }
 
   .page-right p {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 35px;
     width: 80%;
     height: 30%;
-    line-height: 25px;
     margin-bottom: 100px;
   }
 
@@ -785,7 +952,9 @@ textarea {
   }
 
   .skill-form {
-    width: 80%;
+    min-width: 360px;
+    width: 60%;
+    margin-top: 30px;
   }
 
   .skills-menu,
@@ -797,23 +966,33 @@ textarea {
   .skill-form input[type="submit"] {
     width: 100%;
     height: 54px;
+    font-size: 15px;
   }
 
-  .radio-container, .textfield-container {
-    width: 80%;
-    margin-top: 40px;
+  .radio-container, .pagination{
+    width: 280px;
+  }
+
+  .pagination{
+    justify-content: space-between;
+  }
+
+  .textfield-container {
+    min-width: 380px;
+    width: 60%;
+    margin-top: 20px;
     margin-bottom: 0;
   }
 
-  .textfield-container textarea{
+  .textfield-container textarea {
     width: 100%;
   }
 
-  .radio-container h2{
+  .radio-container h2 {
     margin-bottom: 10px;
   }
 
-  .radio-line{
+  .radio-line {
     margin-top: 10px;
   }
 
