@@ -557,7 +557,7 @@ textarea {
   }
 }
 
-/* MOBILE */
+/* MOBILE ------------------------------------------*/
 
 @media (max-width: 480px) {
   .large-title {
@@ -693,7 +693,7 @@ textarea {
   }
 }
 
-/* IPADS, TABLETS */
+/* IPADS, TABLETS ------------------------------------------*/
 
 @media (min-width: 481px) and (max-width: 768px) {
   .large-title {
@@ -715,7 +715,7 @@ textarea {
     font-size: 35px;
     min-width: 400px;
     width: 90%;
-    line-height: 25px;
+    line-height: 35px;
     margin-top: 50px;
     margin-bottom: 40px;
     text-align: center;
@@ -854,11 +854,11 @@ textarea {
 }
 
 
-/* IPADS, TABLETS */
+/* SMALL SCREENS, LAPTOPS ------------------------------------------*/
 
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .large-title {
-    font-size: 40px;
+    font-size: 50px;
     height: auto;
   }
 
@@ -876,7 +876,7 @@ textarea {
     font-size: 35px;
     min-width: 400px;
     width: 90%;
-    line-height: 25px;
+    line-height: 40px;
     margin-top: 50px;
     margin-bottom: 40px;
     text-align: center;
@@ -884,8 +884,8 @@ textarea {
 
   .inputs-container {
     margin-top: 50px;
-    min-width: 340px;
-    width: 60%;
+    min-width: 450px;
+    width: 40%;
   }
 
   .submit-button {
@@ -952,8 +952,8 @@ textarea {
   }
 
   .skill-form {
-    min-width: 360px;
-    width: 60%;
+    min-width: 460px;
+    width: 40%;
     margin-top: 30px;
   }
 
@@ -969,7 +969,7 @@ textarea {
     font-size: 15px;
   }
 
-  .radio-container, .pagination{
+  .radio-container{
     width: 280px;
   }
 
@@ -979,7 +979,7 @@ textarea {
 
   .textfield-container {
     min-width: 380px;
-    width: 60%;
+    width: 50%;
     margin-top: 20px;
     margin-bottom: 0;
   }
