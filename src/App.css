@@ -52,7 +52,7 @@ h1 {
 
 .page-container {
   display: flex;
-  height: 100vh;
+  height: 100%;
   box-sizing: border-box;
 }
 
