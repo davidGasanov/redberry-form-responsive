@@ -182,7 +182,7 @@ h1 {
 .pagination {
   display: flex;
   justify-content: space-between;
-  margin: 150px 0 150px 0;
+  margin: 100px 0 0 0;
   width: 230px;
 }
 
