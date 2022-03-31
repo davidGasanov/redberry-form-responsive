@@ -235,6 +235,7 @@ h1 {
 .error-message[visible="true"] {
   width: 455px;
   display: block;
+  font-family: "Montserrat";
 }
 
 .mismatch-message[mismatched="true"] {
@@ -1132,7 +1133,7 @@ textarea {
 
   .textfield-container {
     min-width: 380px;
-    width: 50%;
+    width: 80%;
     margin-top: 20px;
     margin-bottom: 0;
   }

@@ -14,7 +14,7 @@ import Thankyou from "./pages/Thankyou";
 const Form = () => {
   // State
   const [data, changeData] = useState({
-    page: 3,
+    page: 0,
     pagesArr: [
       { number: 1, completed: false },
       { number: 2, completed: false },

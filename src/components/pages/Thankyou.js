@@ -12,6 +12,7 @@ const Thankyou = ({ data, changeData }) => {
   return (
     <div className="submit-page">
       <h1 className="large-title">Thanks for Joining 😊</h1>
+      
     </div>
   );
 };
