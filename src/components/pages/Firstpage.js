@@ -72,7 +72,7 @@ const Firstpage = ({ data, changeData }) => {
             name={"phone"}
             label={"+995 5_ _ _ _"}
             errorMessage={
-              "*needs to be formatted according to georgian standards"
+              "*needs to be formatted according to georgian standards. E.g.: +995588123456"
             }
             pattern={"^[+]9955\\d{8}$"}
             required={false}
